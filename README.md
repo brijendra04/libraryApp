@@ -141,7 +141,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ## Contact
 For any queries or issues, feel free to reach out:
-- **Email:** brijendra@example.com
+- **Email:** brijendra.developer@gmail.com
 - **LinkedIn:** [Brijendra's LinkedIn](https://www.linkedin.com/in/brijendra30/)
 - **GitHub:** [Brijendra's GitHub](https://github.com/brijendra04)
 
