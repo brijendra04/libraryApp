@@ -10,7 +10,7 @@ const app = express()
 app.use(cors(
     {
         // origin: ["https://libraryapp-eosin.vercel.app/"],
-        origin: ["http://localhost:5173"],
+        origin: ["http://localhost:5173","https://libraryapp-eosin.vercel.app"],
         methods: ["GET", "POST"],
         credentials: true
     }
