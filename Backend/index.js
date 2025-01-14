@@ -9,7 +9,8 @@ const app = express()
 
 app.use(cors(
     {
-        origin: ["https://libraryapp-eosin.vercel.app/"],
+        // origin: ["https://libraryapp-eosin.vercel.app/"],
+        origin: ["http://localhost:5173"],
         methods: ["GET", "POST"],
         credentials: true
     }
@@ -23,17 +24,12 @@ dotenv.config();
 const PORT = process.env.PORT || 4000;
 const URI = process.env.MongoDBURI;
 
-    try{
-        mongoose.connect(URI, {
-            // useNewUrlParser: true,
-            // useUnifiedTopology: true
-        });
 
-        console.log("Connected to mongodb");
-
-    }catch(error){
-            console.log("Error: " + error);
-    }
+mongoose.connect(URI).then(() => {
+    console.log("Connected to mongodb");
+}).catch((error) => {
+    console.error("Error connecting to mongodb: ", error);
+});
 
 app.use("/book", bookRoute);
 app.use("/user", userRoute);

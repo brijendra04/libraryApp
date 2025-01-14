@@ -10,7 +10,6 @@ import About from './about/About'
 import { useAuth } from './context/AuthProvider'
 
 
-
 function App() {
   const [authUser, setAuthUser] = useAuth();
   console.log(authUser)
@@ -23,6 +22,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/about" element={<About/>}/>
+      
       
     </Routes>
     <Toaster/>
