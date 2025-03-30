@@ -23,7 +23,8 @@ function Signup() {
           password: data.password,
         }
 
-        await axios.post("https://library-app-beta-one.vercel.app/user/signup", userInfo)
+        // await axios.post("https://library-app-beta-one.vercel.app/user/signup", userInfo)
+            await axios.post("https://bytebooks-backend.onrender.com/user/signup", userInfo)
         .then((res)=>{
           console.log(res.data);
           if(res.data){
