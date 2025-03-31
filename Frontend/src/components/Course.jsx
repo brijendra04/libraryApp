@@ -2,23 +2,35 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import Cards from './Cards'
 import { Link } from 'react-router-dom'
+import PaymentButton from './PaymentButton'
+import toast from 'react-hot-toast';
 
 function Course() {
 
   const [book, setBook] = useState([])
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const getBook = async () =>{
       try{
-       const res =  await axios.get("https://library-app-beta-one.vercel.app/book");
-       console.log(res.data);
-       setBook(res.data);
+        setLoading(true);
+        // const res =  await axios.get("https://library-app-beta-one.vercel.app/book");
+        const res =  await axios.get("https://bytebooks-backend.onrender.com/book");
+        console.log('Books data:', res.data);
+        setBook(res.data);
       } catch(error){
-          console.log(error);
+          console.error('Error fetching books:', error);
+          toast.error('Failed to load books');
+      } finally {
+        setLoading(false);
       }
     }
     getBook();
   },[])
 
+  if (loading) {
+    return <div className="text-center mt-8">Loading...</div>;
+  }
 
   return (
     <>
@@ -37,9 +49,21 @@ function Course() {
             </button>
           </Link>
         </div>
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-6">
           {book.map((item) => (
-            <Cards key={item.id} item={item} />
+            <div key={item._id || item.id} className="bg-white rounded-lg shadow-md p-4 flex flex-col">
+              <Cards item={item} />
+              <div className="mt-auto flex justify-center w-full">
+                <PaymentButton 
+                  course={{
+                    id: item._id || item.id,
+                    bookname: item.bookname || item.name,
+                    price: item.price,
+                    image: item.image
+                  }} 
+                />
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -49,3 +73,4 @@ function Course() {
 }
 
 export default Course
+
