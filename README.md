@@ -67,5 +67,5 @@ This project is licensed under the MIT License.
 
 ## 📬 Connect With Us
 
-🔗 GitHub: [ByteBooks Repository](https://github.com/brijendra04/ByteBooks)
+🔗 GitHub: [ByteBooks Repository](https://github.com/brijendra04/libraryApp/)
 
