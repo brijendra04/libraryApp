@@ -10,7 +10,8 @@ const Cards = ({ item, course }) => {
     try {
       // Using the new file ID
       const fileId = '1OYbTsuwFxM-G7P2gcc74IyPIKdlvTC7B';
-      const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+      const downloadUrl = `https://drive.google.com/uc?export=download&id=1vIqkf2-EadEOWT46xIvnkYMwFkDBbcSB
+`;
       
       // Create a temporary anchor element
       const link = document.createElement('a');
